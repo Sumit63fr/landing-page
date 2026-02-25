@@ -1,5 +1,6 @@
 import React from 'react'
 import { Cart, Free, Profile, Search } from './Icon'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -18,10 +19,12 @@ const Header = () => {
 
                 <Profile />
                 </button>
+                <Link to="/cart">
                 <button className='hover:scale-115  cursor-pointer transition-all ease-in-out duration-200'>
 
-                    <Cart />
-                </button>
+                        <Cart />
+                    </button>
+                </Link>
             </div>
 
         </div>

@@ -12,6 +12,7 @@ import Accordian from './components/Accordian'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
 
+
 function App() {
 
 
@@ -27,7 +28,8 @@ function App() {
       <Blog />
       <Accordian />
       <Newsletter />
-      <Footer/>
+      <Footer />
+
     </div>
   )
 }

@@ -10,7 +10,7 @@ const Featured = () => {
 
 
     useEffect(() => {
-        const calculateDimensions = () => {
+        const Dimensions = () => {
             const width = window.innerWidth
             if (width < 640) {
                 setDimensions({ cardWidth: 250, cardHeight: 380, gap: 12 })
@@ -20,14 +20,15 @@ const Featured = () => {
                 setDimensions({ cardWidth: 364, cardHeight: 500, gap: 20 })
             }
         }
-        calculateDimensions()
-        window.addEventListener('resize', calculateDimensions)
-        return () => window.removeEventListener('resize', calculateDimensions)
+        Dimensions()
+        window.addEventListener('resize', Dimensions)
+        return () => window.removeEventListener('resize', Dimensions)
     }, [])
 
     const toggleLike = (index) => {
         setLiked(prev => ({ ...prev, [index]: !prev[index] }))
     }
+
 
     const cards = [
         { title: 'Round Yoga Mat', image: '/assets/Matt1.png', price: '€31.95' },
