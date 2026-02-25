@@ -15,10 +15,8 @@ const cards = [
     { title: 'Yoga Workout Shorts', image: '/assets/Category (15).png', price: '€31.95', sale: true },
     { title: 'Cork Yoga Mat', image: '/assets/Category (14).png', price: '€44.95' },
 ]
-
 const Categories = () => {
     const [liked, setLiked] = useState({})
-
     const toggleLike = (index) => {
         setLiked(prev => ({ ...prev, [index]: !prev[index] }))
     }
@@ -31,9 +29,7 @@ const Categories = () => {
         }
         existingCart.push(cartItem)
         localStorage.setItem('cart', JSON.stringify(existingCart))
-
     }
-
     return (
         <div className='flex flex-col items-center justify-center w-full mt-12 sm:mt-16 md:mt-20 lg:mt-24 lg:px-35 px-5'>
             <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between w-full mb-8 sm:mb-10 md:mb-12 gap-4 sm:gap-0'>
@@ -45,7 +41,6 @@ const Categories = () => {
                     View all
                 </button>
             </div>
-
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 w-full'>
                 {cards.map((item, index) => (
                     <div
@@ -57,7 +52,6 @@ const Categories = () => {
                                 Sale
                             </div>
                         )}
-
                         <button
                             className='absolute top-2 sm:top-3 right-2 sm:right-3 bg-white p-1.5 sm:p-2 rounded-full shadow-sm hover:scale-110 transition-transform z-10'
                             onClick={() => toggleLike(index)}
@@ -78,7 +72,6 @@ const Categories = () => {
                                 </button>
                             </div>
                         </div>
-
                         <div className='bg-white flex flex-row items-center justify-between px-3 sm:px-4 py-2 sm:py-3 gap-2'>
                             <h3 className='text-xs sm:text-sm md:text-base font-normal text-black flex-1 truncate'>{item.title}</h3>
                             <span className='text-xs sm:text-sm md:text-base font-normal text-black flex-shrink-0'>{item.price}</span>
@@ -89,5 +82,4 @@ const Categories = () => {
         </div>
     )
 }
-
 export default Categories
