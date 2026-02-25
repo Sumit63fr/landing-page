@@ -29,8 +29,10 @@ const Cart = () => {
                 {cartItems.length === 0 ? (
                     <p>Your cart is empty</p>
                 ) : (
-                    cartItems.map((item, index) => (
-                        <div key={index} className='flex flex-row items-center justify-between border p-6 mb-3 rounded'>
+                        
+                        cartItems.map((item, index) => (
+                        
+                        <div key={index} className='flex flex-row items-center justify-between  p-6 mb-3 rounded'>
 
 
                             <div className='flex flex-row items-center gap-4 flex-1'>
