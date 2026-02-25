@@ -1,0 +1,133 @@
+import React, { useState, useRef } from 'react'
+import { Like, Star } from './common/Icon'
+
+const Trending = () => {
+    const [liked, setLiked] = useState({})
+    const [current, setCurrent] = useState(3)
+    const [transitioning, setTransitioning] = useState(true)
+    const isSliding = useRef(false)
+
+    const toggleLike = (index) => {
+        setLiked(prev => ({ ...prev, [index]: !prev[index] }))
+    }
+
+    const cards = [
+        { title: 'Ultra Shaping Leggings', image: '/assets/Trending (1).png', price: '€31.95', description: 'Sculpting, Slimming, Supportive, Stretchy, Stylish, Seamless', rating: 4 },
+        { title: 'Non-Slip Travel Yoga Mat', image: '/assets/Trending (2).png', price: '€31.95', description: 'Sculpting, Slimming, Supportive, Stretchy, Stylish, Seamless', rating: 4 },
+        { title: 'Foldable Yoga Mat', image: '/assets/Trending (3).png', price: '€31.95', description: 'Sculpting, Slimming, Supportive, Stretchy, Stylish, Seamless', rating: 4 },
+    ]
+
+    const allCards = [...cards, ...cards, ...cards]
+    const cardWidth = typeof window !== 'undefined' && window.innerWidth < 640 ? 280 : typeof window !== 'undefined' && window.innerWidth < 1024 ? 320 : 364
+    const gap = typeof window !== 'undefined' && window.innerWidth < 640 ? 12 : 20
+    const step = cardWidth + gap
+
+    const slide = (dir) => {
+        if (isSliding.current) return
+        isSliding.current = true
+        setTransitioning(true)
+        const next = dir === 'next' ? current + 1 : current - 1
+        setCurrent(next)
+        setTimeout(() => {
+            if (next >= cards.length * 2) {
+                setTransitioning(false)
+                setCurrent(cards.length)
+            } else if (next < cards.length) {
+                setTransitioning(false)
+                setCurrent(cards.length * 2 - 1)
+            }
+            isSliding.current = false
+        }, 400)
+    }
+
+    const realIndex = ((current - cards.length) % cards.length + cards.length) % cards.length
+
+ 
+    return (
+        <div className='flex flex-col items-center justify-center w-full mt-12 sm:mt-16 md:mt-20 lg:mt-24 lg:px-35 px-5'>
+            <div className='flex flex-row items-center justify-between w-full gap-4 sm:gap-0 mb-8 sm:mb-10'>
+                <div className='flex flex-col items-start justify-center'>
+                    <h4 className='font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl'>Trending Products</h4>
+                    <p className='font-normal text-sm sm:text-base md:text-lg text-[#414143] mt-1 sm:mt-2'>Use this area to describe the collection.</p>
+                </div>
+                <div className='flex flex-row items-center justify-center gap-2 sm:gap-3 md:gap-5'>
+                    <button
+                        onClick={() => slide('prev')}
+                        className='group flex items-center justify-center hover:bg-[#01c6b5] hover:border-[#01c6b5] border-2 border-[#414143] px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 rounded-full transition-colors'
+                        aria-label='Previous slide'
+                    >
+                        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path className='group-hover:fill-white transition-colors' d="M8.486 12.728L7.072 14.142L0 7.072L7.072 0L8.486 1.414L2.829 7.071L8.486 12.728Z" fill="#414143" />
+                        </svg>
+                    </button>
+                    <button
+                        onClick={() => slide('next')}
+                        className='group flex items-center justify-center hover:bg-[#01c6b5] hover:border-[#01c6b5] border-2 border-[#414143] px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 rounded-full transition-colors'
+                        aria-label='Next slide'
+                    >
+                        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path className='group-hover:fill-white transition-colors' d="M0.000328064 1.41397L1.41433 -3.14713e-05L8.48633 7.06997L1.41433 14.142L0.000328064 12.728L5.65733 7.07097L0.000328064 1.41397Z" fill="#414143" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div className='mt-8 sm:mt-10 md:mt-12 overflow-hidden w-full max-w-full' style={{ width: `${cardWidth * 3 + gap * 2}px`, maxWidth: '100%' }}>
+                <div
+                    className='flex'
+                    style={{
+                        gap: `${gap}px`,
+                        transform: `translateX(-${current * step}px)`,
+                        transition: transitioning ? 'transform 0.4s ease' : 'none',
+                    }}
+                >
+                    {allCards.map((item, index) => (
+                        <div
+                            key={index}
+                            className='bg-white flex-shrink-0 flex flex-col border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow'
+                            style={{ width: `${cardWidth}px` }}
+                        >
+                            
+                            <div className='relative bg-[#F5F5F5]' style={{ height: cardWidth === 280 ? '200px' : cardWidth === 320 ? '240px' : '300px' }}>
+                                <img src={item.image} alt={item.title} className='w-full h-full object-cover' />
+                                <button
+                                    className='absolute top-2 sm:top-3 right-2 sm:right-3 bg-white p-1.5 sm:p-2 rounded-full shadow-sm hover:scale-110 transition-transform'
+                                    onClick={() => toggleLike(index % cards.length)}
+                                    aria-label='Toggle like'
+                                >
+                                    <Like isLiked={liked[index % cards.length]} />
+                                </button>
+                            </div>
+
+                            
+                            <div className='p-3 sm:p-4 flex flex-col gap-2 flex-1 flex flex-col justify-between'>
+                                <div>
+                                    <h3 className='text-sm sm:text-base md:text-lg font-semibold text-black line-clamp-2'>{item.title}</h3>
+                                    <p className='text-xs sm:text-sm text-[#414143] line-clamp-2'>{item.description}</p>
+                                </div>
+
+                                <div className='flex items-center justify-between mt-2'>
+                                    <span className='text-base sm:text-lg md:text-xl font-semibold text-black'>{item.price}</span>
+                                    <div className='flex flex-row gap-0.5'>
+
+                                        <Star />
+                                        <Star />
+                                        <Star />
+                                        <Star />
+                                    </div>
+                                </div>
+
+                                <button className="mt-2 w-full py-2 sm:py-3 text-xs sm:text-sm md:text-base font-medium border bg-white hover:bg-[#01C6B5] hover:text-white border-gray-200 rounded transition-colors">
+                                
+                                    Shop Now
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Trending

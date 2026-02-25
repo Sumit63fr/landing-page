@@ -1,0 +1,35 @@
+import { useState } from 'react'
+import './App.css'
+import Header from './components/common/Header'
+import Navbar from './components/common/Navbar'
+import Hero from './components/Hero'
+import Featured from './components/Featured'
+import Categories from './components/Categories'
+import Trending from './components/Trending'
+import Service from './components/Service'
+import Blog from './components/Blog'
+import Accordian from './components/Accordian'
+import Newsletter from './components/Newsletter'
+import Footer from './components/Footer'
+
+function App() {
+
+
+  return (
+    <div>
+      <Header />
+      <Navbar />
+      <Hero />
+      <Featured />
+      <Categories />
+      <Trending />
+      <Service />
+      <Blog />
+      <Accordian />
+      <Newsletter />
+      <Footer/>
+    </div>
+  )
+}
+
+export default App
