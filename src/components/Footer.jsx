@@ -19,7 +19,7 @@ const Footer = () => {
                 </div>
 
             </div>
-            <div className='flex flex-row items-start gap-8 sm:gap-12 md:gap-16 lg:gap-20 flex-1 md:flex-none'>
+            <div className='flex flex-row items-start  gap-8 sm:gap-12 md:gap-16 lg:gap-20 flex-1 md:flex-none'>
 
                 <ul className='font-normal space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg lg:text-xl'>
                     <h4 className='font-medium text-sm sm:text-base md:text-lg lg:text-xl'>Quick Links</h4>

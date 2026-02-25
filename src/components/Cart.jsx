@@ -32,7 +32,7 @@ const Cart = () => {
                     cartItems.map((item, index) => (
                         <div key={index} className='flex flex-row items-center justify-between border p-6 mb-3 rounded'>
 
-                        
+
                             <div className='flex flex-row items-center gap-4 flex-1'>
                                 <img src={item.image} alt={item.name} className='h-20 w-20 object-contain' />
                                 <span className='min-w-max'>{item.name}</span>
@@ -53,19 +53,24 @@ const Cart = () => {
                     ))
                 )}
 
-            <div className='flex flex-col items-end gap-4'>
-                    <div className='flex flex-row  gap-20'>
-                        <p className='font-medium text-[16px]'>Estimated total </p>
-                        <p className='font-medium text-[16px]'>Dhs. 249.99 AED  </p>
+                {cartItems.length === 0 ? (
+                    ""
+                ) : (
+                        <div className='flex flex-col items-end gap-4'>
+                            <div className='flex flex-row  gap-20'>
+                                <p className='font-medium text-[16px]'>Estimated total </p>
+                                <p className='font-medium text-[16px]'>Dhs. 249.99 AED  </p>
 
-                        
-              </div>
-                    <p className='text-[16px] font-normal text-[#414143] opacity-80 '>Taxes, discounts  and shipping calculated at <br /> checkout. </p>
+
+                            </div>
+                            <p className='text-[16px] font-normal text-[#414143] opacity-80 '>Taxes, discounts  and shipping calculated at <br /> checkout. </p>
+
+                            <button className='h-13 border-0 text-white bg-[#01C6B5] w-[310px]'>
+                                Checkout
+                            </button>
+                        </div>    
+                )}
                 
-                    <button className='h-13 border-0 text-white bg-[#01C6B5] w-[310px]'>
-Checkout
-                    </button>
-            </div>
             </div>
         </div>
     );

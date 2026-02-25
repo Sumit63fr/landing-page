@@ -39,7 +39,7 @@ const Featured = () => {
                     {CARDS.map((item, index) => (
                         <div
                             key={index}
-                            className='bg-[#F5F5F5] flex flex-col cursor-pointer hover:shadow-lg transition-shadow relative group rounded-lg overflow-hidden h-full'
+                            className='bg-[#F5F5F5] flex flex-col cursor-pointer hover:shadow-lg transition-shadow relative overflow-hidden h-full'
                         >
                             <div className='absolute top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4 bg-white text-black text-sm sm:text-base md:text-lg font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm z-10'>
                                 {item.price}
