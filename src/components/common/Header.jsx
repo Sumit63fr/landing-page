@@ -10,7 +10,7 @@ const Header = () => {
                 <Free />
                 <p className='text-[16px] font-normal  text-[#414143]'>Free delivery & free returns within 15 days</p>
             </div>
-            <div className='flex items-center gap-3 justify-center flex-row'>
+            <div className='md:flex  hidden items-center gap-3 justify-center flex-row'>
                 <button className='hover:scale-115 cursor-pointer transition-all ease-in-out duration-200'>
 
                 <Search />
