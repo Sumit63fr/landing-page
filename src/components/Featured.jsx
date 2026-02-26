@@ -63,7 +63,7 @@ const Featured = () => {
     const realIndex = ((current - cards.length) % cards.length + cards.length) % cards.length
 
     return (
-        <div className='flex flex-col items-center justify-center w-full mt-12 sm:mt-16 md:mt-20 lg:px-35 px-5'>
+        <div className='flex flex-col items-center justify-center w-full mt-30  lg:px-35 px-5'>
             <div className='flex flex-row items-center justify-between w-full gap-4 sm:gap-0 mb-8 sm:mb-10'>
                 <div className='flex flex-col items-start justify-center'>
                     <h4 className='font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl'>Featured Products</h4>
@@ -72,7 +72,7 @@ const Featured = () => {
                 <div className='flex flex-row items-center justify-center gap-2 sm:gap-3 md:gap-5'>
                     <button
                         onClick={() => slide('prev')}
-                        className='group flex items-center justify-center hover:bg-[#01c6b5] hover:border-[#01c6b5] border-2 border-[#414143] px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 rounded-full transition-colors'
+                        className='group flex items-center justify-center hover:bg-[#01c6b5] hover:border-[#01c6b5] border-2 border-[#414143] border-[#414143] opacity-65 px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 rounded-full transition-colors'
                         aria-label='Previous slide'
                     >
                         <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@ const Featured = () => {
                     </button>
                     <button
                         onClick={() => slide('next')}
-                        className='group flex items-center justify-center hover:bg-[#01c6b5] hover:border-[#01c6b5] border-2 border-[#414143] px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 rounded-full transition-colors'
+                        className='group flex items-center justify-center hover:bg-[#01c6b5] hover:border-[#01c6b5] border-2 border-[#414143] border-[#414143] opacity-65 px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 rounded-full transition-colors'
                         aria-label='Next slide'
                     >
                         <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@ const Featured = () => {
             </div>
 
             <div
-                className='mt-8 sm:mt-10 md:mt-12 overflow-hidden w-full '
+                className='mt-5 overflow-hidden w-full '
                 style={{ width: `${cardWidth * 3 + gap * 2}px`, maxWidth: '100%' }}
             >
                 <div

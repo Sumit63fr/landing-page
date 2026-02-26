@@ -2,8 +2,8 @@ import React from 'react'
 
 const Newsletter = () => {
     return (
-        <div className='flex flex-col md:flex-row md:items-center justify-between bg-[#F1F1F1] mt-12  px-5 sm:mt-16 md:mt-20 lg:mt-24 w-full gap-6 sm:gap-8 md:gap-0'>
-            <img src="assets/Photo.png" alt="Newsletter decoration" className='hidden lg:block w-full object-contain' />
+        <div className='flex flex-col md:flex-row md:items-center justify-between bg-[#F1F1F1] mt-12  px-5 sm:mt-16 md:mt-20 lg:mt-24   gap-6 sm:gap-8 md:gap-0'>
+            <img src="assets/Photo.png" alt='' className='hidden lg:block  object-contain' />
             <div className='flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10 md:py-12 lg:py-16 flex-1'>
                 <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center leading-tight'> Subscribe To Our Newsletter</h1>
                 <p className='font-normal text-xs sm:text-sm md:text-base lg:text-lg text-center text-[#414143] mt-4 sm:mt-5 md:mt-6 max-w-lg leading-relaxed'>Get weekly updates on the newest design stories, case studies and tips right in your mailbox. </p>
@@ -15,7 +15,7 @@ const Newsletter = () => {
                     </button>
                 </div>
             </div>
-            <img src="assets/Bottle.png" alt="Newsletter decoration" className='hidden xl:block w-full   h-auto object-contain' />
+            <img src="assets/Bottle.png" className='hidden xl:block    h-auto object-contain' />
         </div>
     )
 }

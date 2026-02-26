@@ -10,7 +10,6 @@ const Trending = () => {
     const toggleLike = (index) => {
         setLiked(prev => ({ ...prev, [index]: !prev[index] }))
     }
-
     const cards = [
         { title: 'Ultra Shaping Leggings', image: '/assets/Trending (1).png', price: '€31.95', description: 'Sculpting, Slimming, Supportive, Stretchy, Stylish, Seamless', rating: 4 },
         { title: 'Non-Slip Travel Yoga Mat', image: '/assets/Trending (2).png', price: '€31.95', description: 'Sculpting, Slimming, Supportive, Stretchy, Stylish, Seamless', rating: 4 },
@@ -44,7 +43,7 @@ const Trending = () => {
 
  
     return (
-        <div className='flex flex-col items-center justify-center w-full mt-12 sm:mt-16 md:mt-20 lg:mt-24 lg:px-35 px-5'>
+        <div className='flex flex-col items-center justify-center w-full mt-45 lg:px-35 px-5'>
             <div className='flex flex-row items-center justify-between w-full gap-4 sm:gap-0 mb-8 sm:mb-10'>
                 <div className='flex flex-col items-start justify-center'>
                     <h4 className='font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl'>Trending Products</h4>
@@ -72,7 +71,7 @@ const Trending = () => {
                 </div>
             </div>
 
-            <div className='mt-8 sm:mt-10 md:mt-12 overflow-hidden w-full max-w-full' style={{ width: `${cardWidth * 3 + gap * 2}px`, maxWidth: '100%' }}>
+            <div className=' overflow-hidden w-full max-w-full' style={{ width: `${cardWidth * 3 + gap * 2}px`, maxWidth: '100%' }}>
                 <div
                     className='flex'
                     style={{
@@ -117,7 +116,7 @@ const Trending = () => {
                                     </div>
                                 </div>
 
-                                <button className="mt-2 w-full py-2 sm:py-3 text-xs sm:text-sm md:text-base font-medium border bg-white hover:bg-[#01C6B5] hover:text-white border-gray-200 rounded transition-colors">
+                                <button className="mt-2 w-full py-2 sm:py-3 text-xs sm:text-sm md:text-base font-medium border bg-white hover:bg-[#01C6B5] hover:text-white  rounded transition-colors">
                                 
                                     Shop Now
                                 </button>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Like } from './common/Icon'
 
 const cards = [
-    { title: 'Insulated Sports Bottle', image: '/assets/Category (1).png', price: '€14.95' },
+    { title: 'Insulated Sports Bottle', image: '/assets/categories.png', price: '€14.95' },
     { title: 'Womens Long Wavy', image: '/assets/Category (13).png', price: '€14.95' },
     { title: 'Acupressure Mat', image: '/assets/Category (23).png', price: '€44.95' },
     { title: 'Liberty Pattern Socks', image: '/assets/Category (22).png', price: '€13.95', sale: true },
