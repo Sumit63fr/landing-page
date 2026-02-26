@@ -8,16 +8,7 @@ const Featured = () => {
     const [dimensions, setDimensions] = useState({ cardWidth: 364, cardHeight: 500, gap: 20 })
     const isSliding = useRef(false)
 
-  
-    useEffect(() => {
-        const storedLiked = JSON.parse(localStorage.getItem('liked')) || {}
-        setLiked(storedLiked)
-    }, [])
 
-     
-    useEffect(() => {
-        localStorage.setItem('liked', JSON.stringify(liked))
-    }, [liked])
 
     useEffect(() => {
         const calculateDimensions = () => {
@@ -35,10 +26,22 @@ const Featured = () => {
         return () => window.removeEventListener('resize', calculateDimensions)
     }, [])
 
+
+
     const toggleLike = (index) => {
         setLiked(prev => ({ ...prev, [index]: !prev[index] }))
     }
 
+    const addToCart = (item) => {
+        const existingCart = JSON.parse(localStorage.getItem('cart')) || []
+        const cartItem = {
+            name: item.title,
+            price: item.price,
+            image: item.image,
+        }
+        existingCart.push(cartItem)
+        localStorage.setItem('cart', JSON.stringify(existingCart))
+    }
 
     const cards = [
         { title: 'Round Yoga Mat', image: '/assets/Matt1.png', price: '€31.95' },
@@ -133,7 +136,7 @@ const Featured = () => {
                             <div className='flex items-center justify-center flex-1 p-4 sm:p-6 md:p-10 relative'>
                                 <img src={item.image} alt={item.title} className='object-contain h-40 sm:h-48 md:h-64 lg:h-80 w-full' />
                                 <div className='absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center'>
-                                    <button className='bg-[#01C6B5] cursor-pointer text-white text-xs sm:text-sm md:text-base font-semibold px-4 sm:px-6 py-2 sm:py-3 hover:bg-[#00b39a] transition-colors'>
+                                    <button className='bg-[#01C6B5] cursor-pointer text-white text-xs sm:text-sm md:text-base font-semibold px-4 sm:px-6 py-2 sm:py-3 hover:bg-[#00b39a] transition-colors' onClick={() => addToCart(item)}>
                                         Add to Cart
                                     </button>
                                 </div>
