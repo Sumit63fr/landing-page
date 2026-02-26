@@ -19,7 +19,7 @@ const Blog = () => {
 
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 w-full'>
                 {cards.map((item, index) => (
-                    <div key={index} className='flex flex-col  overflow-hidden shadow-sm hover:shadow-md transition-shadow'>
+                    <div key={index} className='flex flex-col  overflow-hidden hover:shadow-lg transition-shadow'>
 
                         <div className='h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden'>
                             <img

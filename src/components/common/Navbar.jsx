@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Links } from 'react-router-dom'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -8,8 +8,10 @@ const Navbar = () => {
         <div className='  w-full bg-[#01C6B5] '>
 
         <div className=' w-full  max-w-[1440px] mx-auto flex flex-row  items-center  text-white justify-between py-2 px-5 lg:px-35 relative'>
-            <div className='flex items-center justify-center  '>
+                <div className='flex items-center justify-center  '>
+                    <Link to="/">
                 <img src="assets/Yogalis.png" alt="" />
+                        </ Link>
             </div>
 
             <div className='hidden md:flex items-center gap-11 justify-center flex-row'>
